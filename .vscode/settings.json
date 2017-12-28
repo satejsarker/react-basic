@@ -1,0 +1,5 @@
+{
+
+    // Defines space handling after opening and before closing non empty brackets.
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false
+}
