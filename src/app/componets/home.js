@@ -2,22 +2,53 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 export class Home extends React.Component {
+    constructor(props) {
+        super();
+        this.state = {
+            age: props.initialage,
+            status:0
+        };
+        setTimeout(()=>{
+            this.setState({
+                status:1
+            });
+        }, 3000);
+    }
+
+    onMakeOlder() {
+        this.setState({
+            age:this.state.age+3
+        }); 
+    }
+
     render() {
+    
 
-            return ( < div >
-                <
-                p > new components < /p> 
+        return ( < div >
+            <p> new components </p> 
+            <p>STATUS: {this.state.status}</p>
 
-                <
-                p > { this.props.name } < /p> 
-            {/*
-                <
-                div >
-                <
-                h4 > Hobbies < /h4> <ul>  {this.props.info.hobbies.map((hobby, i) => < li key = { i } > { hobby } < /li > )
-        } { / * ES6 looping * / } < /ul > < /div > */}
+            <p> { this.props.name }
+            age: { this.state.age } < /p>  <
+            hr / >
+            <
+            button className = "btn btn-primary"
+            onClick = {
+                () => this.onMakeOlder()
+            } > make me older <
+            /button>
 
-        </div>
-);
+            <
+            /div>
+        );
+    }
 }
+
+
+
+Home.PropTypes = {
+    name: React.PropTypes.string,
+
+    age: React.PropTypes.number
+
 }
